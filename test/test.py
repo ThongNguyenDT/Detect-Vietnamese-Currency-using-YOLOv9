@@ -55,7 +55,6 @@ def draw_corner_rect(img, bbox, line_length=30, line_thickness=5, rect_thickness
     return img
 
 
-
 # Loop through the video frames
 while cap.isOpened():
     # Read a frame from the video
@@ -106,7 +105,6 @@ while cap.isOpened():
             if c > 0.5:
                 list.append([[x1, y1, x2 - x1, y2 - y1], c, id])
 
-
         tracks = tracker.update_tracks(list, frame=frame)
         print("-----------------")
         for index, track in enumerate(tracks):
@@ -130,7 +128,6 @@ while cap.isOpened():
             cv2.rectangle(frame, (x1, y1), (x2, y2), (B, G, R), 2)
             cv2.rectangle(frame, (x1 - 1, y1 - 20), (x1 + len(text) * 10, y1), (B, G, R), -1)
             cv2.putText(frame, text, (x1 + 5, y1 - 7), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-
 
         # Display the annotated frame
         cv2.imshow("YOLOv8 Tracking", frame)
